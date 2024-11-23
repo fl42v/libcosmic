@@ -47,6 +47,12 @@ pub fn show_maximize() -> bool {
     COSMIC_TK.read().unwrap().show_maximize
 }
 
+/// Show serverside decorations (window header)
+#[allow(clippy::missing_panics_doc)]
+pub fn show_decorations() -> bool {
+    COSMIC_TK.read().unwrap().show_decorations
+}
+
 /// Preferred icon theme.
 #[allow(clippy::missing_panics_doc)]
 pub fn icon_theme() -> String {
@@ -87,6 +93,9 @@ pub struct CosmicTk {
     /// Show maximize button in window header.
     pub show_maximize: bool,
 
+    /// Show serverside decorations (window header)
+    pub show_decorations: bool,
+
     /// Preferred icon theme.
     pub icon_theme: String,
 
@@ -109,6 +118,7 @@ impl Default for CosmicTk {
             apply_theme_global: false,
             show_minimize: true,
             show_maximize: true,
+            show_decorations: true,
             icon_theme: String::from("Cosmic"),
             header_size: Density::Standard,
             interface_density: Density::Standard,
